@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IconPhone, IconBrandWhatsapp } from "@tabler/icons-react";
-import { EmberField } from "./EmberField";
 import heroImage from "@/public/images/ember-fire.jpg";
 
 export function Hero() {
@@ -21,8 +20,6 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/55 to-bg/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-bg/70 via-bg/10 to-transparent" />
-
-      <EmberField />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-24 md:pb-28">
         <div className="max-w-2xl">

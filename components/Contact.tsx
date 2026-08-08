@@ -1,11 +1,6 @@
-import Link from "next/link";
-import {
-  IconPhone,
-  IconBrandWhatsapp,
-  IconMapPin,
-  IconClock,
-} from "@tabler/icons-react";
+import { IconMapPin, IconClock } from "@tabler/icons-react";
 import { Reveal } from "./Reveal";
+import { BookingForm } from "./BookingForm";
 
 export function Contact() {
   return (
@@ -16,8 +11,8 @@ export function Contact() {
             Reserve a table.
           </h2>
           <p className="mt-5 max-w-sm text-ink-muted">
-            Call ahead on weekends. Delivery and takeaway run the same hours,
-            every day.
+            Tell us the date and party size. We confirm every booking on
+            WhatsApp.
           </p>
 
           <dl className="mt-10 space-y-6 text-sm">
@@ -49,38 +44,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="rounded-2xl bg-bg-raised p-8 md:p-10">
-            <p className="text-sm text-ink-faint">Reservations and delivery</p>
-            <div className="mt-5 space-y-3">
-              <Link
-                href="tel:+201221785555"
-                className="flex items-center justify-between gap-3 rounded-full bg-accent px-6 py-3.5 text-sm font-medium text-bg transition-transform duration-200 ease-out hover:-translate-y-px active:scale-[0.98]"
-              >
-                <span className="flex items-center gap-2">
-                  <IconPhone className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-                  +20 122 178 5555
-                </span>
-              </Link>
-              <Link
-                href="https://wa.me/201221783333"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 rounded-full border border-line px-6 py-3.5 text-sm font-medium text-ink transition-colors duration-200 hover:border-ink-muted"
-              >
-                <span className="flex items-center gap-2">
-                  <IconBrandWhatsapp
-                    className="h-4 w-4"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
-                  +20 122 178 3333
-                </span>
-              </Link>
-            </div>
-            <p className="mt-6 text-xs text-ink-faint">
-              Second line doubles as delivery and takeaway orders.
-            </p>
-          </div>
+          <BookingForm />
         </Reveal>
       </div>
     </section>
