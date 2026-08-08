@@ -6,10 +6,12 @@ import { Menu } from "@/components/Menu";
 import { Ambience } from "@/components/Ambience";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { IntroSplash } from "@/components/IntroSplash";
 
 export default function Home() {
   return (
     <>
+      <IntroSplash />
       <Nav />
       <main className="flex-1">
         <Hero />
