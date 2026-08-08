@@ -36,9 +36,21 @@ export function IntroVideo() {
     if (reduce) return;
     const video = videoRef.current;
     if (!video) return;
-    video.play().catch(() => {
-      // Autoplay blocked (rare with muted video); fall back to the safety timeout.
-    });
+    // Set these imperatively (not just as JSX props) so autoplay is honored
+    // by strict mobile browser policies even on the very first paint.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("webkit-playsinline", "true");
+    video.playsInline = true;
+    const playPromise = video.play();
+    if (playPromise) {
+      playPromise.catch(() => {
+        // Autoplay blocked; fall back to the safety timeout so the intro
+        // never hangs, and try once more on the first user interaction.
+        const retry = () => video.play().catch(() => {});
+        window.addEventListener("pointerdown", retry, { once: true });
+      });
+    }
   }, [reduce]);
 
   if (!mounted) return null;
@@ -75,11 +87,12 @@ export function IntroVideo() {
           <video
             ref={videoRef}
             src={VIDEO_SRC}
-            poster="/images/ember-fire.jpg"
             muted
             playsInline
             autoPlay
             preload="auto"
+            disablePictureInPicture
+            controlsList="nodownload noplaybackrate"
             onEnded={() => setFadeOut(true)}
             className="absolute inset-0 h-full w-full object-cover"
           />
