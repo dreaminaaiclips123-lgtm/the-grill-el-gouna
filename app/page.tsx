@@ -6,14 +6,14 @@ import { Menu } from "@/components/Menu";
 import { Ambience } from "@/components/Ambience";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { IntroSplash } from "@/components/IntroSplash";
+import { ScrollIgnite } from "@/components/ScrollIgnite";
 
 export default function Home() {
   return (
     <>
-      <IntroSplash />
       <Nav />
       <main className="flex-1">
+        <ScrollIgnite />
         <Hero />
         <Heritage />
         <SignatureDishes />
