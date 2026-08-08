@@ -6,17 +6,19 @@ import { Menu } from "@/components/Menu";
 import { Ambience } from "@/components/Ambience";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { IntroVideo } from "@/components/IntroVideo";
+import { IntroLogo } from "@/components/IntroLogo";
+import { SearScrub } from "@/components/SearScrub";
 
 export default function Home() {
   return (
     <>
-      <IntroVideo />
+      <IntroLogo />
       <Nav />
       <main className="flex-1">
         <Hero />
         <Heritage />
         <SignatureDishes />
+        <SearScrub />
         <Menu />
         <Ambience />
         <Contact />
