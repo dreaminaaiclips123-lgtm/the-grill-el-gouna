@@ -35,7 +35,7 @@ export function SignatureDishes() {
           return (
             <article
               key={name}
-              className="group relative w-[78vw] shrink-0 snap-start overflow-hidden rounded-2xl bg-bg-raised sm:w-[46vw] md:w-[30vw] lg:w-[24vw]"
+              className="group relative w-[78vw] shrink-0 snap-start overflow-hidden rounded-2xl bg-bg-raised shadow-[0_0_0_rgba(0,0,0,0)] transition-shadow duration-500 ease-out hover:shadow-[0_18px_60px_-12px_var(--color-accent-soft)] sm:w-[46vw] md:w-[30vw] lg:w-[24vw]"
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 <Image

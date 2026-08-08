@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconFlame, IconPhone } from "@tabler/icons-react";
+import { IconFlame, IconCalendarEvent } from "@tabler/icons-react";
 
 const LINKS = [
   { href: "#dishes", label: "Dishes" },
@@ -36,10 +36,10 @@ export function Nav() {
         </nav>
 
         <Link
-          href="tel:+201221785555"
+          href="#top"
           className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-bg transition-transform duration-200 ease-out hover:-translate-y-px active:scale-[0.98]"
         >
-          <IconPhone className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+          <IconCalendarEvent className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
           Reserve
         </Link>
       </div>
