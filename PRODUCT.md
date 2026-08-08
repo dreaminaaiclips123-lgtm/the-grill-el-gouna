@@ -57,7 +57,7 @@ WCAG AA contrast throughout on the dark charcoal ground (bone text and ember acc
 - **Name:** The Grill El Gouna
 - **Established:** 1999
 - **Cuisine:** Egyptian / Oriental & Mediterranean, charcoal grill
-- **Location:** El Gouna, Red Sea, Egypt (exact street/zone not yet confirmed by client - flagged for correction)
+- **Location:** Downtown El Gouna, Red Sea, Egypt
 - **Hours:** Daily, 13:00-23:45
 - **Phone (reservations):** +20 122 178 5555
 - **Phone (delivery/alt):** +20 122 178 3333
@@ -72,4 +72,4 @@ WCAG AA contrast throughout on the dark charcoal ground (bone text and ember acc
 - **Palette (OKLCH, "Committed" strategy):** background a near-black warm charcoal (smoke, not pure black); ink a warm bone/off-white; one accent, ember/terracotta-orange (the fire), used consistently for CTAs, price emphasis, and hover states. No second competing hue; a muted brass/gold is only ever a shade of the same ember ramp, never a separate accent.
 - **Typography:** Bodoni Moda (display serif, high-contrast, fine-dining register) for headlines and the wordmark; Plus Jakarta Sans for body and UI text, via `next/font/google`.
 - **Signature interaction:** a restrained cursor-reactive ember/smoke particle field behind the hero only, canvas-based, low density, collapsing to a static glow under `prefers-reduced-motion`.
-- **Sections:** Hero (name, est. 1999, one-line positioning, call-to-reserve) -> Heritage strip (short real story, full-width editorial statement) -> Signature Dishes (Grill Experience highlights: Fillet Mignon, Lamb Chops, Tarb, Charcoal Rotisserie Chicken - generated photography, horizontal scroll-snap, not a 3-card row) -> Full Menu (categorized, tabs/accordion by section, real prices, not one long list) -> Ambience (full-bleed generated night/charcoal-smoke scene, ties to El Gouna setting) -> Reservations & Contact (call + WhatsApp CTAs, hours, map placeholder, socials) -> Footer (Tabler icon socials, hours, invented-fact disclosure).
+- **Sections:** Hero (name, est. 1999, one-line positioning, call-to-reserve) -> Heritage strip (short real story, full-width editorial statement) -> Signature Dishes (Grill Experience highlights: Fillet Mignon, Lamb Chops, Tarb, Charcoal Rotisserie Chicken - generated photography, horizontal scroll-snap, not a 3-card row) -> Full Menu (categorized, tabs/accordion by section, real prices, not one long list) -> Ambience (full-bleed generated night/charcoal-smoke scene, ties to El Gouna setting) -> Reservations & Contact (call + WhatsApp CTAs, hours, Downtown El Gouna location, socials) -> Footer (Tabler icon socials, hours, invented-fact disclosure).
