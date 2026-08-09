@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
-  IconFlame,
   IconBrandInstagram,
   IconBrandFacebook,
   IconExternalLink,
 } from "@tabler/icons-react";
+import logoMark from "@/public/images/logo-mark.jpg";
 
 const SOCIALS = [
   {
@@ -21,21 +22,30 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-line/60 bg-bg">
-      <div className="mx-auto max-w-7xl px-6 py-14">
+    <footer className="relative border-t border-line/60 bg-bg">
+      <div
+        className="texture-grain pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-overlay"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl px-6 py-14">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div>
-            <div className="flex items-center gap-2 font-display text-lg tracking-tight text-ink">
-              <IconFlame
-                className="h-5 w-5 text-accent"
-                strokeWidth={1.75}
-                aria-hidden="true"
-              />
-              The Grill El Gouna
+          <div className="flex items-center gap-3">
+            <Image
+              src={logoMark}
+              alt="The Grill El Gouna"
+              width={44}
+              height={44}
+              className="rounded-full"
+            />
+            <div>
+              <p className="font-display text-lg tracking-tight text-ink">
+                The Grill El Gouna
+              </p>
+              <p className="mt-0.5 max-w-xs text-sm text-ink-faint">
+                Downtown El Gouna, Red Sea, Egypt. Open daily, 13:00 to
+                23:45.
+              </p>
             </div>
-            <p className="mt-3 max-w-xs text-sm text-ink-faint">
-              Downtown El Gouna, Red Sea, Egypt. Open daily, 13:00 to 23:45.
-            </p>
           </div>
 
           <div className="flex flex-col gap-4 md:items-end">

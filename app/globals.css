@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: oklch(15% 0.016 42);
-  --color-bg-raised: oklch(19% 0.02 42);
-  --color-bg-raised-2: oklch(23% 0.022 42);
-  --color-ink: oklch(95% 0.012 70);
-  --color-ink-muted: oklch(74% 0.02 60);
-  --color-ink-faint: oklch(64% 0.02 55);
-  --color-accent: oklch(68% 0.16 42);
-  --color-accent-strong: oklch(58% 0.18 38);
-  --color-accent-soft: oklch(30% 0.06 42);
-  --color-line: oklch(30% 0.02 42);
+  /* Brand tones extracted directly from the client's real Instagram logo
+     (@thegrillgouna): cream oklch(96.7% 0.022 80.7), gold oklch(66.5% 0.092
+     84.4), ink oklch(20.4% 0.004 106.7). Background/surfaces stay a dark,
+     textured register (their logo's own black), with the real gold as the
+     single accent instead of an invented ember-orange. */
+  --color-bg: oklch(15% 0.014 75);
+  --color-bg-raised: oklch(19% 0.017 75);
+  --color-bg-raised-2: oklch(23% 0.018 75);
+  --color-ink: oklch(96% 0.014 80);
+  --color-ink-muted: oklch(76% 0.018 78);
+  --color-ink-faint: oklch(64% 0.016 76);
+  --color-accent: oklch(66.5% 0.092 84.4);
+  --color-accent-strong: oklch(56% 0.1 84.4);
+  --color-accent-soft: oklch(28% 0.04 84.4);
+  --color-line: oklch(30% 0.017 75);
 
   --font-display: var(--font-bodoni);
   --font-sans: var(--font-jakarta);
 
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --shadow-ember: 0 18px 60px -12px oklch(15% 0.014 75 / 0.7);
 }
 
 :root {
@@ -24,6 +30,7 @@
 
 html {
   background: var(--color-bg);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,6 +42,32 @@ body {
 ::selection {
   background: var(--color-accent);
   color: var(--color-bg);
+}
+
+/* Grill-grate motif: a recurring, on-brand texture (not decorative noise) used
+   sparingly as a section backdrop. Evokes the bars of a charcoal grate. */
+.texture-grate {
+  background-image: repeating-linear-gradient(
+    100deg,
+    oklch(100% 0 0 / 0.05) 0px,
+    oklch(100% 0 0 / 0.05) 1px,
+    transparent 1px,
+    transparent 28px
+  );
+}
+
+.texture-grate-tight {
+  background-image: repeating-linear-gradient(
+    100deg,
+    oklch(100% 0 0 / 0.06) 0px,
+    oklch(100% 0 0 / 0.06) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+.texture-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @media (prefers-reduced-motion: reduce) {

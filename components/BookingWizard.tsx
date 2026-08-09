@@ -111,7 +111,11 @@ export function BookingWizard() {
   const stepIndex = STEP_ORDER.indexOf(step);
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-line/60 bg-bg-raised/95 backdrop-blur-sm">
+    <div className="relative w-full overflow-hidden rounded-2xl border border-line/60 bg-bg-raised/95 shadow-[var(--shadow-ember)] backdrop-blur-sm">
+      <div
+        className="texture-grain pointer-events-none absolute inset-0 opacity-[0.035] mix-blend-overlay"
+        aria-hidden="true"
+      />
       <AnimatePresence mode="wait" custom={dir} initial={false}>
         <motion.div
           key={step}

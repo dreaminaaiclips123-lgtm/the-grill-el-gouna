@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { IconFlame } from "@tabler/icons-react";
+import Image from "next/image";
+import logoMark from "@/public/images/logo-mark.jpg";
 
 const HOLD_MS = 1600;
 const REDUCED_HOLD_MS = 500;
+const FADE_MS = 800;
+const REDUCED_FADE_MS = 300;
 
 export function IntroLogo() {
   const reduce = useReducedMotion();
@@ -20,12 +23,25 @@ export function IntroLogo() {
   }, []);
 
   useEffect(() => {
-    const t = setTimeout(
+    const holdTimer = setTimeout(
       () => setFadeOut(true),
       reduce ? REDUCED_HOLD_MS : HOLD_MS
     );
-    return () => clearTimeout(t);
+    return () => clearTimeout(holdTimer);
   }, [reduce]);
+
+  useEffect(() => {
+    if (!fadeOut) return;
+    // Deterministic unmount timer, independent of animation-complete
+    // callbacks, so the body scroll lock can never get stuck. Reset the
+    // scroll lock directly here too, not only via the mount effect's
+    // cleanup, so it is unlocked even if unmount ordering is unusual.
+    const unmountTimer = setTimeout(() => {
+      document.body.style.overflow = "";
+      setMounted(false);
+    }, (reduce ? REDUCED_FADE_MS : FADE_MS) + 50);
+    return () => clearTimeout(unmountTimer);
+  }, [fadeOut, reduce]);
 
   if (!mounted) return null;
 
@@ -33,9 +49,9 @@ export function IntroLogo() {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: fadeOut ? 0 : 1 }}
-      transition={{ duration: reduce ? 0.3 : 0.8, ease: [0.23, 1, 0.32, 1] }}
-      onAnimationComplete={() => {
-        if (fadeOut) setMounted(false);
+      transition={{
+        duration: (reduce ? REDUCED_FADE_MS : FADE_MS) / 1000,
+        ease: [0.23, 1, 0.32, 1],
       }}
       className="fixed inset-0 z-[100] flex items-center justify-center bg-bg"
     >
@@ -43,16 +59,15 @@ export function IntroLogo() {
         initial={reduce ? false : { opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-        className="flex items-center gap-3"
       >
-        <IconFlame
-          className="h-8 w-8 text-accent"
-          strokeWidth={1.75}
-          aria-hidden="true"
+        <Image
+          src={logoMark}
+          alt="The Grill El Gouna"
+          width={120}
+          height={120}
+          className="rounded-full shadow-[var(--shadow-ember)]"
+          priority
         />
-        <span className="font-display text-3xl tracking-tight text-ink md:text-4xl">
-          The Grill
-        </span>
       </motion.div>
     </motion.div>
   );

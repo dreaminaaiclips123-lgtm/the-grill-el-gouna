@@ -8,6 +8,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { IntroLogo } from "@/components/IntroLogo";
 import { SearScrub } from "@/components/SearScrub";
+import { FloatingContact } from "@/components/FloatingContact";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <FloatingContact />
     </>
   );
 }
